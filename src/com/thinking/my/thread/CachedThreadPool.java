@@ -1,6 +1,8 @@
 package com.thinking.my.thread;
 
-import java.util.concurrent.Executor;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -10,5 +12,7 @@ import java.util.concurrent.Executors;
 public class CachedThreadPool {
     public static void main(String[] args) {
         ExecutorService exec = Executors.newCachedThreadPool();
+        ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
+        Map map = new HashMap();
     }
 }
