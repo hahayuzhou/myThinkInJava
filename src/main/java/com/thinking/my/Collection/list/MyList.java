@@ -18,6 +18,9 @@ public class MyList {
         b.add("a");
         b.add("c");
         b.add("d");
+        b.add(null);
+        b.add(null);
+        System.out.println(b.size());
 //        System.out.println(diff(s,b));
 //        s.removeAll(b);//差集
 //        s.retainAll(b);//交集

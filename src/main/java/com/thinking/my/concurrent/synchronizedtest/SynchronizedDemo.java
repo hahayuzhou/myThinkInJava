@@ -32,13 +32,13 @@ public class SynchronizedDemo implements Runnable{
 
 
 //    @Override
-//    public void run() {
-//        //锁类对象
-//        synchronized (SynchronizedDemo.class) {
-//            for (int i = 0; i < 1000000; i++)
-//                count++;
-//        }
-//    }
+    public void run() {
+        //锁类对象
+        synchronized (SynchronizedDemo.class) {
+            for (int i = 0; i < 1000000; i++)
+                count++;
+        }
+    }
 //    @Override
 //    public void run() {
 //        //锁成员对象
@@ -47,14 +47,14 @@ public class SynchronizedDemo implements Runnable{
 //                count++;
 //        }
 //    }
-    @Override
-    public void run() {
-        //锁静态 对象
-        synchronized (b) {
-            for (int i = 0; i < 1000000; i++)
-                count++;
-        }
-    }
+//    @Override
+//    public void run() {
+//        //锁静态 对象
+//        synchronized (b) {
+//            for (int i = 0; i < 1000000; i++)
+//                count++;
+//        }
+//    }
 //    @Override
 //    public void run() {
 //        //锁类成员对象
