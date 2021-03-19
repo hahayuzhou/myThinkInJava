@@ -1,4 +1,4 @@
-package com.thinking.my.io.newio;
+package com.thinking.my.io.nio;
 
 import java.nio.IntBuffer;
 

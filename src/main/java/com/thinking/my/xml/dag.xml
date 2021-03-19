@@ -1,0 +1,148 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+    <variables>
+        <variable id="]#Qw#pMVQ4g|/vpA[c^0">result</variable>
+        <variable id="F.cTpuEfHGD2AdMS66^X">domainName</variable>
+        <variable id="(p1OK,V~Q![O|a#X58~u">select</variable>
+        <variable id="(*Eh+c)`;{iV24EPd6ar">popResponse</variable>
+    </variables>
+    <block type="procedures_defnoreturn" id="_n2DfkW~:Fpn[)K;:|s9" x="288" y="312">
+        <field name="NAME">do something</field>
+        <comment pinned="false" h="80" w="160">Describe this function...</comment>
+        <statement name="STACK">
+            <block type="buffaloQuery" id="iJ1flK(gCnK);2FeTM;3">
+                <field name="response" id="]#Qw#pMVQ4g|/vpA[c^0">result</field>
+                <field name="domainName" id="F.cTpuEfHGD2AdMS66^X">domainName</field>
+                <field name="select" id="(p1OK,V~Q![O|a#X58~u">select</field>
+                <value name="domainName">
+                    <block type="text_input" id="XinOIy(em4nhXH!jT_dl">
+                        <field name="value">domainaaa</field>
+                    </block>
+                </value>
+                <value name="select">
+                    <block type="input_args_with" id="E#!`TVFTPeZag{u?^z;~">
+                        <mutation items="2"></mutation>
+                        <value name="ADD0">
+                            <block type="text_input" id="#gVhBLRZ)h@XYh5G/L.i">
+                                <field name="value">filed1</field>
+                            </block>
+                        </value>
+                        <value name="ADD1">
+                            <block type="text_input" id="8bQvs?e3~-~dim[k7VN|">
+                                <field name="value">filed2</field>
+                            </block>
+                        </value>
+                    </block>
+                </value>
+                <next>
+                    <block type="bq_pop" id="ca-B^sx}{9N@AZ+W:6a^">
+                        <field name="thriftResponse" id="(*Eh+c)`;{iV24EPd6ar">popResponse</field>
+                        <value name="NAME">
+                            <block type="pop_input" id="({.TzzU[^oS1d+3CE_5/">
+                                <field name="dateDimension">时间维度</field>
+                                <field name="dateFormat">YYYYMMDD</field>
+                                <value name="PoPShift">
+                                    <block type="input_args_with" id="mLA5-?PqwBITh^eT^S_F">
+                                        <mutation items="3"></mutation>
+                                        <value name="ADD0">
+                                            <block type="pop_shift" id="t5iPnhOW%H/4txc=~VEC">
+                                                <field name="pop_shift_type">DOD</field>
+                                                <value name="NAME">
+                                                    <block type="input_args_with" id="pl8VfDb6RY/-5jq-!WTK">
+                                                        <mutation items="3"></mutation>
+                                                        <value name="ADD0">
+                                                            <block type="pop_measure" id="n@!3Rf.w`}U1/2S+=/Zc">
+                                                                <field name="pop_type">RISE_VALUE</field>
+                                                                <field name="measureKey">指标列</field>
+                                                                <field name="key">同环比列1</field>
+                                                            </block>
+                                                        </value>
+                                                        <value name="ADD1">
+                                                            <block type="pop_measure" id="a`@c*-9l`3LkAdYv1WP7">
+                                                                <field name="pop_type">RISE_RATIO</field>
+                                                                <field name="measureKey">指标列</field>
+                                                                <field name="key">同环比列2</field>
+                                                            </block>
+                                                        </value>
+                                                        <value name="ADD2">
+                                                            <block type="pop_measure" id="d_{jo2y88q)Fu0p(h5=:">
+                                                                <field name="pop_type">ORIGIN_VALUE</field>
+                                                                <field name="measureKey">指标列</field>
+                                                                <field name="key">同环比列3</field>
+                                                            </block>
+                                                        </value>
+                                                    </block>
+                                                </value>
+                                            </block>
+                                        </value>
+                                        <value name="ADD1">
+                                            <block type="pop_shift" id="XXvr=[ACfUs`dbCwgPfC">
+                                                <field name="pop_shift_type">WOW</field>
+                                                <value name="NAME">
+                                                    <block type="input_args_with" id=";97TKv_c+)u*.TpKm}]#">
+                                                        <mutation items="3"></mutation>
+                                                        <value name="ADD0">
+                                                            <block type="pop_measure" id="qu5Vf?W~1!S^BUav5NV1">
+                                                                <field name="pop_type">RISE_VALUE</field>
+                                                                <field name="measureKey">指标列</field>
+                                                                <field name="key">同环比列1</field>
+                                                            </block>
+                                                        </value>
+                                                        <value name="ADD1">
+                                                            <block type="pop_measure" id="zy59`4;rL+sSzN#H~dWW">
+                                                                <field name="pop_type">RISE_RATIO</field>
+                                                                <field name="measureKey">指标列</field>
+                                                                <field name="key">同环比列2</field>
+                                                            </block>
+                                                        </value>
+                                                        <value name="ADD2">
+                                                            <block type="pop_measure" id="+k.,gKYgbsQ|YfO%nn3n">
+                                                                <field name="pop_type">ORIGIN_VALUE</field>
+                                                                <field name="measureKey">指标列</field>
+                                                                <field name="key">同环比列3</field>
+                                                            </block>
+                                                        </value>
+                                                    </block>
+                                                </value>
+                                            </block>
+                                        </value>
+                                        <value name="ADD2">
+                                            <block type="pop_shift" id="i`%51pPwUu?#/N3lc})E">
+                                                <field name="pop_shift_type">MOM</field>
+                                                <value name="NAME">
+                                                    <block type="input_args_with" id="f52f`UuN@jlpc{A4dJo8">
+                                                        <mutation items="3"></mutation>
+                                                        <value name="ADD0">
+                                                            <block type="pop_measure" id="-K]!6td00RpO?mUCJx:^">
+                                                                <field name="pop_type">RISE_VALUE</field>
+                                                                <field name="measureKey">指标列</field>
+                                                                <field name="key">同环比列1</field>
+                                                            </block>
+                                                        </value>
+                                                        <value name="ADD1">
+                                                            <block type="pop_measure" id="d,.T%v;]Z/jpsLOXsbT{">
+                                                                <field name="pop_type">RISE_RATIO</field>
+                                                                <field name="measureKey">指标列</field>
+                                                                <field name="key">同环比列2</field>
+                                                            </block>
+                                                        </value>
+                                                        <value name="ADD2">
+                                                            <block type="pop_measure" id="d9+rZL%8z;d_(m|UB1QK">
+                                                                <field name="pop_type">ORIGIN_VALUE</field>
+                                                                <field name="measureKey">指标列</field>
+                                                                <field name="key">同环比列3</field>
+                                                            </block>
+                                                        </value>
+                                                    </block>
+                                                </value>
+                                            </block>
+                                        </value>
+                                    </block>
+                                </value>
+                            </block>
+                        </value>
+                    </block>
+                </next>
+            </block>
+        </statement>
+    </block>
+</xml>

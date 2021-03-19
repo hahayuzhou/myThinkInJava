@@ -13,6 +13,7 @@ public class MutextDemo {
             Thread thread = new Thread(() -> {
                 mutex.lock();
                 try {
+                    System.out.println(Thread.currentThread().getName());
                     Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();

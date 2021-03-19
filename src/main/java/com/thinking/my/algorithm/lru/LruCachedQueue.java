@@ -1,5 +1,7 @@
 package com.thinking.my.algorithm.lru;
 
+import com.google.common.collect.MinMaxPriorityQueue;
+
 /**
  * @Description
  * @Author liyong
@@ -7,7 +9,7 @@ package com.thinking.my.algorithm.lru;
  **/
 public class LruCachedQueue {
 
-//    private MinMaxPriorityQueue<LruCachedEntry> queue;
+    private MinMaxPriorityQueue<LruCachedEntry> queue;
     private long heapSize;
     private long maxSize;
 

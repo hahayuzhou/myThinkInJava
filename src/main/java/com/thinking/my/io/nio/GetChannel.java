@@ -1,4 +1,4 @@
-package com.thinking.my.io.newio;//: io/GetChannel.java
+package com.thinking.my.io.nio;//: io/GetChannel.java
 // Getting channels from streams
 import java.nio.*;
 import java.nio.channels.*;

@@ -1,0 +1,66 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+    <variables>
+        <variable id="4Fcdlv9g76C#=jcxcu|O">result</variable>
+        <variable id="Y8?tK^!)C^C6HCSC;%Ps">domainName</variable>
+        <variable id="m9,.|ltPq6G_9GwpwDc6">select</variable>
+        <variable id="V=/_~wBT0l67iRc/Rz(I">popResponse</variable>
+    </variables>
+    <block type="procedures_defnoreturn" id="`mHXNsGJAlP0_:fIf70:" x="163" y="113">
+        <field name="NAME">环比</field>
+        <comment pinned="false" h="80" w="160">Describe this function...</comment>
+        <statement name="STACK">
+            <block type="buffaloQuery" id="_V!RO:Kg-4?=MqLg4wP%">
+                <field name="response" id="4Fcdlv9g76C#=jcxcu|O">result</field>
+                <field name="domainName" id="Y8?tK^!)C^C6HCSC;%Ps">domainName</field>
+                <field name="select" id="m9,.|ltPq6G_9GwpwDc6">select</field>
+                <value name="domainName">
+                    <block type="text_input" id="e2|55MUT_%9DkQv{}hpo">
+                        <field name="value">inputValue</field>
+                    </block>
+                </value>
+                <next>
+                    <block type="bq_pop" id="+d=/Cq|$^zf;pQ8AVPI6">
+                        <field name="thriftResponse" id="V=/_~wBT0l67iRc/Rz(I">popResponse</field>
+                        <value name="NAME">
+                            <block type="pop_input" id="]!uJP_E$|X34v,TL+[n0">
+                                <field name="dateDimension">时间维度</field>
+                                <field name="dateFormat">YYYYMMDD</field>
+                                <value name="PoPShift">
+                                    <block type="pop_shift" id="tNQji2QG[4yq_LAHc}/R">
+                                        <field name="pop_shift_type">DOD</field>
+                                        <value name="NAME">
+                                            <block type="input_args_with" id="C{OjeO(:J]A}#G`wO8y}">
+                                                <mutation items="3"></mutation>
+                                                <value name="ADD0">
+                                                    <block type="pop_measure" id="(Ba4U(`Vu6PYvI(L~[V7">
+                                                        <field name="pop_type">RISE_VALUE</field>
+                                                        <field name="measureKey">指标列</field>
+                                                        <field name="key">同环比列</field>
+                                                    </block>
+                                                </value>
+                                                <value name="ADD1">
+                                                    <block type="pop_measure" id="zjMuz@TXqG*NkaNRjE`u">
+                                                        <field name="pop_type">RISE_VALUE</field>
+                                                        <field name="measureKey">指标列</field>
+                                                        <field name="key">同环比列</field>
+                                                    </block>
+                                                </value>
+                                                <value name="ADD2">
+                                                    <block type="pop_measure" id="0R+MT(cxpxd`ksj{Md`i">
+                                                        <field name="pop_type">RISE_VALUE</field>
+                                                        <field name="measureKey">指标列</field>
+                                                        <field name="key">同环比列</field>
+                                                    </block>
+                                                </value>
+                                            </block>
+                                        </value>
+                                    </block>
+                                </value>
+                            </block>
+                        </value>
+                    </block>
+                </next>
+            </block>
+        </statement>
+    </block>
+</xml>

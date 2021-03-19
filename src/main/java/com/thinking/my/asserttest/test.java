@@ -10,6 +10,6 @@ public class test {
         String name = "";
         assert 1==2:"error 1==2";
         assert name==null:"error 1==2";
-        System.out.println(2);
+        System.out.println(name);
     }
 }
