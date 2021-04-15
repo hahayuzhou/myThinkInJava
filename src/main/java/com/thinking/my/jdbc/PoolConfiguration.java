@@ -584,6 +584,17 @@ public interface PoolConfiguration {
      */
     public void setTestOnConnect(boolean testOnConnect);
 
+    /**
+     * 以分号分隔的类名列表，扩展了{@link org.apache.tomcat.jdbc.pool.JdbcInterceptor}类。
+     *       这些拦截器将作为拦截器插入到java.sql.Connection对象的操作链中。
+     *       拦截器的示例是{@link org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer StatementFinalizer}，用于关闭会话中所有使用的语句。
+     *       * {@link org.apache.tomcat.jdbc.pool.interceptor.ResetAbandonedTimer ResetAbandonedTimer}会在连接或语句上的每个操作时重置计时器。
+     *       {@link org.apache.tomcat.jdbc.pool.interceptor.ConnectionState ConnectionState}缓存自动提交，只读和目录设置，以避免往返数据库。
+     *        默认值为空。
+     *       @返回用于连接的拦截器。
+     *        示例格式：“ ConnectionState（useEquals = true，fast = yes）; ResetAbandonedTimer”
+     * @return
+     */
     public String getJdbcInterceptors();
 
     public void setJdbcInterceptors(String jdbcInterceptors);

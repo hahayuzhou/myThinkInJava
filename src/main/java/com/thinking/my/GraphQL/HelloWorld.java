@@ -14,7 +14,6 @@
 //import graphql.schema.idl.SchemaParser;
 //import graphql.schema.idl.TypeDefinitionRegistry;
 //
-//import static graphql.schema.idl.RuntimeWiring.newRuntimeWiring;
 //
 //public class HelloWorld {
 //

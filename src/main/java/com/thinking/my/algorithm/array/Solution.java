@@ -1,5 +1,7 @@
 package com.thinking.my.algorithm.array;
 
+import com.thinking.my.algorithm.lru.damo.StringUtils;
+
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
@@ -26,9 +28,8 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        int[] numbers = {3,4,5,1,2};
-        int min = minArray(numbers);
-        System.out.println(min);
+        System.out.println(hammingWeight(999999999));
+        System.out.println(hammingWeight2(999999999));
     }
 
     /**
@@ -71,4 +72,25 @@ public class Solution {
         return minPath[rows - 1][columns - 1];
 
     }
+
+    public static int hammingWeight(int n) {
+        int ret = 0;
+        for (int i = 0; i < 32; i++) {
+            if ((n & (1 << i)) != 0) {
+                ret++;
+            }
+        }
+        return ret;
+    }
+
+    public static int hammingWeight2(int n) {
+        int ret = 0;
+        while (n!=0){
+            n = n&(n-1);
+            ret++;
+        }
+        return ret;
+    }
+
+
 }

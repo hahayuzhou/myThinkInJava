@@ -43,17 +43,20 @@ public class QuickSort {
 
 
     public static void main(String[] args) {
-        Integer[] arr = {1,2,3,5,7,4,2};
+        Integer[] arr = {3,2,1,4,5};
         System.out.println(arr.hashCode());
         for(int i = 0;i<arr.length;i++){
             System.out.print(arr[i]);
         }
+        System.out.println("");
+
         quickSort(arr,0,arr.length-1);
         System.out.println(arr.hashCode());
 
         for(int i = 0;i<arr.length;i++){
             System.out.print(arr[i]);
         }
+        System.out.println("");
 
        List<Integer> aa = Arrays.asList(arr);
         Arrays.stream(arr).forEach(e->{

@@ -3,7 +3,6 @@ package com.thinking.my.algorithm.sort;
 import java.util.Arrays;
 
 /**
- *
  * 堆排序
  * Created by liyong on 2019/7/3.
  */
@@ -21,7 +20,6 @@ public class HeapSort {
         for(int k = 2*i+1;k<leng;k=2*k+1){
             num++;
             if(k+1<leng && arr[k]<arr[k+1]){
-
                 k++;
             }
             if(arr[k]>tmp){
@@ -71,6 +69,35 @@ public class HeapSort {
         sortBigHead(arr);
         System.out.println(Arrays.toString(arr));
         System.out.println(num);
+    }
+
+    private void heapAdjust(int[] r, int low, int high){
+        int temp = r[low];
+        for (int j=2*low; j<=high; j=j*2){ //沿关键之较大的元素向下进行筛选
+        //j 指向关键之较大的元素
+            if (j<high&&r[j]<r[j+1]) {
+                j++;
+            }
+            //若temp 比其孩子都大，则插入到low 所指位置
+            if (temp>r[j]){
+                break;
+            }
+            r[low] = r[j];
+            low = j; //向下筛选
+        }
+        r[low] = temp;
+    }
+
+    public void heapSort(int[] r){
+        int n = r.length - 1;
+        for (int i=n/2; i>=1; i--) //初始化建堆
+            heapAdjust(r,i,n);
+        for (int i=n; i>1; i--){ //不断输出堆顶元素并调整r[1..i-1]为新堆
+            int temp = r[1]; //交换堆顶与堆底元素
+            r[1] = r[i];
+            r[i] = temp;
+            heapAdjust(r,1,i-1); //调整
+        }
     }
 
 
