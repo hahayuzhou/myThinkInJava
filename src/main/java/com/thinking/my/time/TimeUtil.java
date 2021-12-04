@@ -1,9 +1,13 @@
 package com.thinking.my.time;
 
+import org.joda.time.DateTime;
+
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAccessor;
 import java.time.temporal.TemporalAdjusters;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -462,4 +466,39 @@ public class TimeUtil {
             return LocalDateTime.now();
         }
     }
+    public static void getLong(){
+//        //方法一
+//        long milliSecondsLeftToday = 86400000 - DateUtils.getFragmentInMilliseconds(Calendar.getInstance(), Calendar.DATE);
+//        long secondsLeftToday = 86400 - DateUtils.getFragmentInSeconds(Calendar.getInstance(), Calendar.DATE);
+//        System.out.println("当天剩余毫秒1：" + milliSecondsLeftToday);
+//        System.out.println("当天剩余秒1：" + secondsLeftToday);
+
+
+        //方法二
+//        DateTime dateTime = new DateTime().millisOfDay().withMaximumValue();
+//        long millSeconds2 = new Duration(new DateTime(), dateTime).getMillis();
+//        long count = new Duration(new DateTime(), dateTime).getStandardSeconds();
+//        System.out.println("当天剩余毫秒2：" + millSeconds2);
+//        System.out.println("当天剩余秒2：" + count);
+
+
+        //方法三:LocalDateTime和ChronoUnit为1.8新增
+//        long millSeconds = ChronoUnit.MILLIS.between(LocalDateTime.now(),midnight);
+        long s = System.currentTimeMillis();
+            LocalDateTime midnight = LocalDateTime.now().plusDays(1).withHour(0).withMinute(0).withSecond(0).withNano(0);
+            LocalDateTime midnight2 = LocalDateTime.now().plusDays(2).withHour(0).withMinute(0).withSecond(0).withNano(0);
+         long  seconds = ChronoUnit.SECONDS.between(LocalDateTime.now(), midnight);
+         int  seconds2 = (int) ChronoUnit.SECONDS.between(midnight, midnight2);
+
+        System.out.println(System.currentTimeMillis()-s);
+//        System.out.println("当天剩余毫秒3：" + millSeconds);
+        System.out.println("当天剩余秒：" + seconds);
+        System.out.println("当天剩余秒2：" + seconds2);
+    }
+
+    public static void main(String[] args) {
+        getLong();
+    }
+
+
 }

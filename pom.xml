@@ -53,6 +53,24 @@
             <version>1.1.0</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.49</version>
+<!--            <version>8.0.20</version>-->
+        </dependency>
+        <!--Javassist这样的字节码增强工具
+         Javaassist这个单词其实是Java和Assist两个单词拼接在一起，意为Java助手，是一个Java字节码增强类库：
+            可以基于已经存在的类进行字节码增强，例如修改已经存在的方法、变量，甚至是直接在原有的类中添加新的方法等。
+            可以完全像积木拼接一样，动态拼出一个全新的类。-->
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.27.0-GA</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>

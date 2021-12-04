@@ -1,9 +1,13 @@
 package com.thinking.my.time;
 
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.Period;
+import com.sun.org.apache.xalan.internal.xsltc.dom.SortingIterator;
+
+import java.text.SimpleDateFormat;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  * @Description
@@ -35,6 +39,31 @@ public class TImeTest {
         Period tenDays = Period.ofDays(10);
         Period threeWeeks = Period.ofWeeks(3);
         Period twoYearsSixMonthsOneDay = Period.of(2, 6, 1);
+        SimpleDateFormat df = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss z", Locale.ENGLISH);
+        df.setTimeZone(TimeZone.getTimeZone("GMT"));
+        Date now = new Date();
+        String dateString = df.format(new Date());
+
+        System.out.println(dateString);
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("EEE, d MMM yyyy HH:mm:ss z",Locale.ENGLISH);
+        Instant instant = now.toInstant();
+//        LocalDateTime time = LocalDateTime.ofInstant(instant, ZoneId.of("GMT"));
+//        dateString = dateTimeFormatter.format(now.toInstant());
+//        System.out.println(dateString);
+
+        System.out.println(22);
+        LocalDateTime localDateTime =
+                now.toInstant()
+                        .atZone(ZoneId.systemDefault())
+                        .toLocalDateTime();
+        System.out.println("cc");
+
+        dateString = dateTimeFormatter.format(localDateTime);
+        System.out.println(dateString);
+
+
+
 
     }
 }

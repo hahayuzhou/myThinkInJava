@@ -356,6 +356,7 @@ public class PooledConnection implements PooledConnectionMBean {
             //no validation required, no init sql and props not set
             return true;
         }
+        return true;
 
     }
     /**

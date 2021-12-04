@@ -1,8 +1,6 @@
 package com.thinking.my.Collection.list;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by liyong on 2019/3/14.
@@ -10,23 +8,38 @@ import java.util.List;
 public class MyList {
 
     public static void main(String[] args) {
-        List s  = new ArrayList();
-        s.add("a");
-        s.add("b");
-        s.add("d");
-        List<String> b = new ArrayList<>();
-        b.add("a");
-        b.add("c");
-        b.add("d");
-        b.add(null);
-        b.add(null);
-        System.out.println(b.size());
-//        System.out.println(diff(s,b));
-//        s.removeAll(b);//差集
-//        s.retainAll(b);//交集
-        s.addAll(b);//并集
-        System.out.println(s);
 
+        List<String> aa = new ArrayList<>();
+        aa.add("a");
+        aa.add("c");
+        aa.add("c");
+        String[] arr = aa.toArray(new String[0]);
+        System.out.println(arr.length);
+        System.out.println(arr[1]);
+
+        for(int j=0;j<20;j++){
+            List<List<String>> apples = new ArrayList<>();
+            for(int i = 0;i<1000;i++){
+                List a = new ArrayList();
+                a.add("key"+i+j);
+                a.add("vaasdfasdfasdfasdfasdfasfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasderwersdfszxcvzxcvzxcvz"+i+j);
+                apples.add(a);
+            }
+
+            long start = System.currentTimeMillis();
+            for(int m = 0;m<100;m++){
+                Map<String,List<String>> map = new HashMap<>();
+                String key;
+                for (List<String> list:apples){
+                    key = list.get(0);
+//                list.remove(0);
+                    map.put(key,list);
+                }
+            }
+
+            String a = new String("a");
+            System.out.println(System.currentTimeMillis()-start);
+        }
 
     }
 
@@ -45,4 +58,6 @@ public class MyList {
         List list1 = new LinkedList();
         return list;
     }
+
+
 }

@@ -195,17 +195,20 @@ public class ConnectionPool {
             if (!forceReconnect) {
                 if ((!con.isDiscarded()) && con.validate(PooledConnection.VALIDATE_BORROW)) {
                     //set the timestamp
-                    con.setTimestamp(now);
+//                    con.setTimestamp(now);
                     if (getPoolProperties().isLogAbandoned()) {
                         //set the stack trace for this pool
-                        con.setStackTrace(getThreadDump());
+//                        con.setStackTrace(getThreadDump());
                     }
                     if (!busy.offer(con)) {
                     }
                     return con;
                 }
             }
+        }catch (Exception e){
+
         }
+        return null;
 
     }
 

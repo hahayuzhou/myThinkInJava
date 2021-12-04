@@ -11,5 +11,8 @@ public class BitMapTest {
 
     public static void main(String[] args) {
         BitSet bitSet = new BitSet();
+
+        String ss = "123";
+        Integer.parseInt(ss);
     }
 }
