@@ -10,7 +10,7 @@ import java.sql.*;
 public class Test {
 
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://doris.st.sankuai.com:8080/ly_test_stage";
+    static final String DB_URL = "";
 
     // MySQL 8.0 以上版本 - JDBC 驱动名及数据库 URL
     //static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -18,8 +18,8 @@ public class Test {
 
 
     // 数据库的用户名与密码，需要根据自己的设置
-    static final String USER = "ly_test_stage_r@default_cluster";
-    static final String PASS = "read_2W92iy0d";
+    static final String USER = "";
+    static final String PASS = "";
 
     public static void main(String[] args) {
         Connection conn = null;
