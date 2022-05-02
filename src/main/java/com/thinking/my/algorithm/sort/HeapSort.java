@@ -30,7 +30,6 @@ public class HeapSort {
                 num++;
                 break;
             }
-
         }
         arr[i] = tmp;
     }
@@ -47,10 +46,7 @@ public class HeapSort {
             swap(arr,0,j);//将堆顶元素与末尾元素进行交换
             adjustBigHeap(arr,0,j);//重新对堆进行调整
         }
-
     }
-
-
     /**
      * 交换元素
      * @param arr

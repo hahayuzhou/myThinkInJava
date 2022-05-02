@@ -43,7 +43,7 @@ public class QuickSort {
 
 
     public static void main(String[] args) {
-        Integer[] arr = {3,2,1,4,5};
+        Integer[] arr = {5,4,3,1,2,7};
         System.out.println(arr.hashCode());
         for(int i = 0;i<arr.length;i++){
             System.out.print(arr[i]);

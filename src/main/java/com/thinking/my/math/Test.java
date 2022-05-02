@@ -17,8 +17,14 @@ public class Test {
 //            System.out.println(random.nextInt(5));
             int idx = random.nextInt(2)%2;
             System.out.println(idx);
-
         }
 
+        long l = 1234567899876989844l;
+        int c = (int) l;
+        System.out.println(c);
+
     }
+
+
+
 }

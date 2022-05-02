@@ -1,8 +1,10 @@
 package com.thinking.my.algorithm.tree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Queue;
+import java.util.Stack;
 
 /**
  * @Description 给定一个整数 n，生成所有由 1 ... n 为节点所组成的 二叉搜索树
@@ -26,9 +28,6 @@ import java.util.stream.Collectors;
  *     /     /       \                 \
  *    2     1         2                 3
  *
- * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/unique-binary-search-trees-ii
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  *
  * @Author liyong
  * @Date 2020/7/21 7:37 下午
@@ -201,7 +200,216 @@ public class Solution {
         return G[n];
     }
 
+    /**
+     * 从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。
+     *
+     *  
+     *
+     * 例如:
+     * 给定二叉树: [3,9,20,null,null,15,7],
+     *
+     *     3
+     *    / \
+     *   9  20
+     *     /  \
+     *    15   7
+     * 返回：
+     * [3,9,20,15,7]
+     *
+     * @param root
+     * @return
+     */
+    public int[] levelOrder(TreeNode root) {
 
+        if(root == null) return new int[0];
+        Queue<TreeNode> queue = new LinkedList(){
+            { add(root); }
+        };
+        ArrayList<Integer> ans = new ArrayList<>();
+        while(!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            ans.add(node.val);
+            if(node.left != null) queue.add(node.left);
+            if(node.right != null) queue.add(node.right);
+        }
+        int[] res = new int[ans.size()];
+        for(int i = 0; i < ans.size(); i++)
+            res[i] = ans.get(i);
+        return res;
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    public int[] levelOrder2(TreeNode root) {
+
+        if(root == null){
+            return new int[0];
+        }
+
+        Queue<TreeNode> queue  = new LinkedList<>();
+        queue.add(root);
+
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        while (!queue.isEmpty()){
+            TreeNode treeNode = queue.poll();
+            arrayList.add(treeNode.val);
+            if(treeNode.left != null){
+                queue.add(treeNode.left);
+            }
+            if(treeNode.right != null){
+                queue.add(treeNode.right);
+            }
+        }
+        int[] res = new int[arrayList.size()];
+       for(int i=0;i<res.length;i++){
+           res[i] = arrayList.get(i);
+       }
+       return res;
+
+
+    }
+
+    /**
+     * 从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。
+     * 例如:
+     * 给定二叉树: [3,9,20,null,null,15,7],
+     *
+     *     3
+     *    / \
+     *   9  20
+     *     /  \
+     *    15   7
+     * 返回其层次遍历结果：
+     *
+     * [
+     *   [3],
+     *   [9,20],
+     *   [15,7]
+     * ]
+     * @param root
+     * @return
+     */
+    public List<List<Integer>> levelOrder3(TreeNode root) {
+        List<List<Integer>> lists = new ArrayList<>();
+        if(root==null){
+            return lists;
+        }
+
+        Queue<Queue<TreeNode>> queues = new LinkedList<>();
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        queues.add(queue);
+        while (!queues.isEmpty()){
+            List<Integer> list = new ArrayList<>();
+            Queue<TreeNode> queue1 = queues.poll();
+            queue = new LinkedList<>();
+            while (!queue1.isEmpty()){
+                TreeNode treeNode = queue1.poll();
+                list.add(treeNode.val);
+                if(treeNode.left != null){
+                    queue.add(treeNode.left);
+                }
+                if(treeNode.right != null){
+                    queue.add(treeNode.right);
+                }
+            }
+            if(list.size()>0){
+                lists.add(list);
+            }
+            if(!queue.isEmpty()){
+                queues.add(queue);
+            }
+
+        }
+        return lists;
+
+    }
+
+    /**
+     * 请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。
+     *
+     *  
+     *
+     * 例如:
+     * 给定二叉树: [3,9,20,null,null,15,7],
+     *
+     *     3
+     *    / \
+     *   9  20
+     *     /  \
+     *    15   7
+     * 返回其层次遍历结果：
+     *
+     * [
+     *   [3],
+     *   [20,9],
+     *   [15,7]
+     * ]
+     *
+     *
+     * @param root
+     * @return
+     */
+    public List<List<Integer>> levelOrder4(TreeNode root) {
+        List<List<Integer>> lists = new ArrayList<>();
+        if(root==null){
+            return lists;
+        }
+
+        Queue<Stack<TreeNode>> queues = new LinkedList<>();
+
+        Stack<TreeNode> stack = new Stack<>();
+        stack.add(root);
+        queues.add(stack);
+        int i = 0;
+        while (!queues.isEmpty()){
+
+            List<Integer> list = new ArrayList<>();
+            Stack<TreeNode> stack1 = queues.poll();
+            stack = new Stack<>();
+            while (!stack1.isEmpty()){
+                TreeNode treeNode = stack1.pop();
+                list.add(treeNode.val);
+                if(i%2==1){
+                    if(treeNode.left != null){
+                        stack.add(treeNode.left);
+                    }
+                    if(treeNode.right != null){
+                        stack.add(treeNode.right);
+                    }
+                }else{
+                    if(treeNode.right != null){
+                        stack.add(treeNode.right);
+                    }
+                    if(treeNode.left != null){
+                        stack.add(treeNode.left);
+                    }
+
+                }
+            }
+            if(list.size()>0){
+                lists.add(list);
+            }
+            if(!stack.isEmpty()){
+                i++;
+                queues.add(stack);
+            }
+
+        }
+        return lists;
+
+    }
 
 
 

@@ -11,11 +11,27 @@ import java.util.Arrays;
  * @Date 2020/7/22 8:56 下午
  **/
 public class Solution {
-
+    /**
+     * 把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。
+     *
+     * 给你一个可能存在 重复 元素值的数组 numbers ，它原来是一个升序排列的数组，并按上述情形进行了一次旋转。请返回旋转数组的最小元素。例如，数组 [3,4,5,1,2] 为 [1,2,3,4,5] 的一次旋转，该数组的最小值为1。  
+     *
+     * 示例 1：
+     *
+     * 输入：[3,4,5,1,2]
+     * 输出：1
+     * 示例 2：
+     *
+     * 输入：[2,2,2,0,1]
+     * 输出：0
+     *
+     * 来源：力扣（LeetCode）
+     * 链接：https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof
+     * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     * @param numbers
+     * @return
+     */
     public static int minArray(int[] numbers) {
-        if(numbers.length<=1){
-
-        }
         int min=numbers[0];
 //        min =  Arrays.stream(numbers).min().getAsInt();
         for(int i = 1;i<numbers.length;i++){
@@ -90,6 +106,48 @@ public class Solution {
             ret++;
         }
         return ret;
+    }
+
+    /**
+     * 给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+     *
+     * 子数组 是数组中的一个连续部分。
+     *
+     *  
+     *
+     * 示例 1：
+     *
+     * 输入：nums = [-2,1,-3,4,-1,2,1,-5,4]
+     * 输出：6
+     * 解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。
+     * 示例 2：
+     *
+     * 输入：nums = [1]
+     * 输出：1
+     * 示例 3：
+     *
+     * 输入：nums = [5,4,-1,7,8]
+     * 输出：23
+     *
+     * @param nums
+     * @return
+     */
+    public int maxSubArray(int[] nums) {
+
+        if(nums.length==1){
+            return nums[0];
+        }
+
+        int sn = nums[0];
+        int max= nums[0];
+        for (int i = 1; i<nums.length;i++){
+            sn = Math.max(sn+nums[i],nums[i]);
+
+            max = Math.max(max,sn);
+        }
+
+        return max;
+
     }
 
 

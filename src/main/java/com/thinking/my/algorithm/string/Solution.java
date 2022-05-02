@@ -1,6 +1,8 @@
 package com.thinking.my.algorithm.string;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -56,6 +58,51 @@ public class Solution {
             }
         }
         return idx;
+    }
+
+    /**
+     * 在字符串 s 中找出第一个只出现一次的字符。如果没有，返回一个单空格。 s 只包含小写字母。
+     *
+     * 示例 1:
+     *
+     * 输入：s = "abaccdeff"
+     * 输出：'b'
+     * 示例 2:
+     *
+     * 输入：s = ""
+     * 输出：' '
+     * 限制：
+     *
+     * 0 <= s 的长度 <= 50000
+     *
+     * 来源：力扣（LeetCode）
+     * 链接：https://leetcode-cn.com/problems/di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu-lcof
+     * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     * @param s
+     * @return
+     */
+    public static char firstUniqChar(String s) {
+        if(s==null){
+            return ' ';
+        }
+        char[] chars = s.toCharArray();
+        int length = s.length();
+        for(int i=0;i<chars.length&&s.length()>0;){
+           s = s.replace(chars[i]+"","");
+            if(length-s.length()==1){
+                return chars[i];
+            }
+            length = s.length();
+            chars = s.toCharArray();
+
+
+        }
+        return ' ';
+    }
+
+    public static void main(String[] args) {
+        String s = "loveleetcode";
+        System.out.println(firstUniqChar(s));
     }
 
 

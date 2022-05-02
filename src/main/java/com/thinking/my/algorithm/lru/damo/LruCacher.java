@@ -11,7 +11,9 @@ public class LruCacher {
 
 	private final Map<String, LruCachedEntry> map;
 	private final ReentrantLock evictionLock = new ReentrantLock(true);
+	//标识是否有正在清除缓存的动作
 	private volatile boolean evictionInProgress = false;
+	//驱逐线程
 	private EvictionThread eviction = null;
 	private Thread evictionThread;
 
@@ -155,7 +157,9 @@ public class LruCacher {
 			evictionInProgress = true;
 			long currentSize = this.size.get();
 			long free = currentSize - minSize();
-			if (free <= 0) return;
+			if (free <= 0){
+				return;
+			}
 			Bucket bucketSingle = new Bucket(free, singleSize());
 			Bucket bucketMulti = new Bucket(free, multiSize());
 			Bucket bucketResident = new Bucket(free, residentSize());
@@ -176,7 +180,7 @@ public class LruCacher {
 				}
 			}
 			long bytesFreed = 0;
-			PriorityQueue<Bucket> bucketQueue = new PriorityQueue<Bucket>(3);
+			PriorityQueue<Bucket> bucketQueue = new PriorityQueue<>(3);
 			bucketQueue.add(bucketSingle);
 			bucketQueue.add(bucketMulti);
 			bucketQueue.add(bucketResident);
