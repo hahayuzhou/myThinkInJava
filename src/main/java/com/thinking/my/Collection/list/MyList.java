@@ -13,9 +13,20 @@ public class MyList {
         aa.add("a");
         aa.add("c");
         aa.add("c");
+        List<String> bb = new ArrayList<>();
+        bb.add("a");
+        bb.add("c");
+        bb.add("d");
         String[] arr = aa.toArray(new String[0]);
         System.out.println(arr.length);
         System.out.println(arr[1]);
+
+        aa.addAll(bb);
+        String[] arr2 = aa.toArray(new String[0]);
+        System.out.println(arr2.length);
+        System.out.println(arr2[1]);
+
+
 
         for(int j=0;j<20;j++){
             List<List<String>> apples = new ArrayList<>();

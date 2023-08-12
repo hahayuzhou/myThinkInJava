@@ -1,6 +1,8 @@
 package com.thinking.my.xml.test;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @Description
@@ -22,6 +24,10 @@ public class Test {
         User userTest = (User) XMLUtil.convertXmlStrToObject(User.class, str);
         System.out.println(userTest);
         System.out.println("---将String类型的xml转换成对象 End---");
+
+        String  ss = "(sum(rdc_reverse_receipt_qty) + sum(grid_intercept_back_rdc_receipt_qty) + sum(tms_intercept_back_rdc_receipt_qty))/(sum(ghid_should_take_qty) + sum(gms_in_fail_plan_qty) + sum(gms_out_plan_qty) - sum(gms_in_actual_qty) + sum(grid_intercept_back_rdc_plan_qty) + sum(tms_intercept_back_rdc_plan_qty))";
+        System.out.println(ss.length());
+
     }
 
 }

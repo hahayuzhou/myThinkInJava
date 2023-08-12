@@ -1,5 +1,11 @@
 package com.thinking.my.jdbc.doris;
 
+import com.alibaba.fastjson.JSON;
+import com.facebook.presto.spi.Page;
+import com.facebook.presto.spi.PageBuilder;
+import com.facebook.presto.spi.block.BlockBuilder;
+import io.airlift.slice.Slices;
+
 import java.sql.*;
 
 /**
@@ -9,8 +15,12 @@ import java.sql.*;
  **/
 public class Test {
 
+    public static final int MAX_PAGE_SIZE = 16 * 1024 * 1024;
+    public static final int MAX_PAGE_ROWS = 100000;
+
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "";
+//    static final String DB_URL = "jdbc:mysql://doris.st.sankuai.com:8080/ly_test_stage";
+    static final String DB_URL = "jdbc:mysql://10.221.76.23:8080/bigo_mtdw_validation";
 
     // MySQL 8.0 以上版本 - JDBC 驱动名及数据库 URL
     //static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -18,8 +28,10 @@ public class Test {
 
 
     // 数据库的用户名与密码，需要根据自己的设置
-    static final String USER = "";
-    static final String PASS = "";
+    static final String USER = "root";
+    static final String PASS = "doris_mt_olap";
+//    static final String USER = "ly_test_stage_r@default_cluster";
+//    static final String PASS = "read_2W92iy0d";
 
     public static void main(String[] args) {
         Connection conn = null;
@@ -37,19 +49,41 @@ public class Test {
             stmt = conn.createStatement();
             stmt.setQueryTimeout(10);
             String sql;
-            sql = "select * FROM ly_test_stage.buffalo_query_log1  limit 0,100";
+            sql = "explain select 1";
             long start = System.currentTimeMillis();
             ResultSet rs = stmt.executeQuery(sql);
             System.out.println("Use:"+(System.currentTimeMillis()-start));
             // 展开结果集数据库
+
+//            PageBuilder builder = PageBuilder.withMaxPageSize(MAX_PAGE_SIZE, types);
+            int counter = 0;
             while(rs.next()){
+
+                System.out.println(JSON.toJSONString(rs));
                 // 通过字段检索
-                long id  = rs.getLong("dt");
-
-
-                // 输出数据
-                System.out.print("long_time: " + id);
+//                long id  = rs.getLong("dt");
+//
+//
+//                // 输出数据
+//                System.out.print("long_time: " + id);
                 System.out.print("\n");
+//                if (builder.isFull() || counter == ScanLogic.MAX_PAGE_ROWS) {
+//                    Page page = builder.build();
+//                    operator.in(page);
+//                    builder.reset();
+//                    counter = 0;
+//                }
+//                builder.declarePosition();
+//                for (int i = 0; i < columns.size(); i++) {
+//                    BlockBuilder output = builder.getBlockBuilder(i);
+//                    String value = formatter.get(rs, i);
+//                    if (value == null) {
+//                        output.appendNull();
+//                    } else {
+//                        ScanLogic.STRING.writeSlice(output, Slices.utf8Slice(value));
+//                    }
+//                }
+                counter++;
             }
             // 完成后关闭
             rs.close();

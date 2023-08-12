@@ -2,6 +2,7 @@ package com.thinking.my.Collection.set;
 
 import java.util.AbstractSet;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -69,6 +70,14 @@ public class MySet {
         set.removeAll(aaa);//差集
         System.out.println(set);
 //        System.out.println(b);
+
+        Set<String> ccc = new HashSet<>();
+
+        System.out.println(ccc.toString());
+        
+        ccc = Collections.EMPTY_SET;
+        System.out.println(ccc.toString());
+
     }
 
     public static Set<String> getSet(){

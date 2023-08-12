@@ -5,9 +5,12 @@
     <groupId>com.ly.java.study</groupId>
     <artifactId>myThinkInJava</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <properties>
         <java.version>1.8</java.version>
         <skipTests>true</skipTests>
+        <presto-spi.version>0.219</presto-spi.version>
+        <presto-main.version>0.219</presto-main.version>
     </properties>
 
     <dependencies>
@@ -31,7 +34,7 @@
             <groupId>com.graphql-java</groupId>
             <artifactId>graphql-java</artifactId>
             <version>16.2</version>
-<!--            <version>11.0</version>-->
+            <!--            <version>11.0</version>-->
         </dependency>
         <!-- -->
         <dependency>
@@ -47,18 +50,12 @@
             <version>4.4.14</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.googlecode.javaewah</groupId>
-            <artifactId>JavaEWAH</artifactId>
-            <version>1.1.0</version>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.49</version>
-<!--            <version>8.0.20</version>-->
+            <!--            <version>8.0.20</version>-->
         </dependency>
         <!--Javassist这样的字节码增强工具
          Javaassist这个单词其实是Java和Assist两个单词拼接在一起，意为Java助手，是一个Java字节码增强类库：
@@ -84,6 +81,48 @@
             <version>4.1.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpmime</artifactId>
+            <version>4.5</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.69</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.facebook.presto</groupId>
+            <artifactId>presto-spi</artifactId>
+            <version>${presto-spi.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.facebook.presto</groupId>
+            <artifactId>presto-main</artifactId>
+            <version>${presto-main.version}</version>
+        </dependency>
+        <!--google bitmap EWAHCompressedBitmap -->
+        <dependency>
+            <groupId>com.googlecode.javaewah</groupId>
+            <artifactId>JavaEWAH</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.18</version>
+        </dependency>
 
     </dependencies>
 

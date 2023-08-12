@@ -26,6 +26,23 @@ public class test {
 //        System.out.println(longs.size());
 //        StringBuilder stringBuilder = new StringBuilder();
 //        System.out.println(longHashCode(stringBuilder.toString()));
+        Long l = new Long(2);
+
+        String a = "aa";
+        String b = new String("aa");
+        System.out.println(a.hashCode());
+        System.out.println(b.hashCode());
+        System.out.println(a==b);
+        System.out.println(a.equals(b));
+        Long c = 2L;
+        Long d = 2L;
+
+        System.out.println(c.hashCode());
+        System.out.println(l.hashCode());
+        System.out.println(l == c);
+        l = new Long(3);
+        System.out.println(d == c);
+        System.out.println(l.equals(c));
 
 
 

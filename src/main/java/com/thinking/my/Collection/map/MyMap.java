@@ -1,6 +1,8 @@
 package com.thinking.my.Collection.map;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,6 +29,11 @@ public class MyMap {
         System.out.println(14 >> 3);
         System.out.println(14 / 4);
         System.out.println(14 >>2);
+
+        map.put("a","b");
+        System.out.println();
+        List<String> list = new ArrayList<>(map.values());
+        System.out.println(list);
     }
 
 
